@@ -32,8 +32,21 @@ switch (liff.getOS()) {
   case "android": body.style.backgroundColor = "#d1f5d3"; break
   case "ios": body.style.backgroundColor = "#eeeeee"; break
   case "web": body.style.backgroundColor = "#aaee3f"; break
+}
+
+if (!liff.isInClient()) {
+  if (liff.isLoggedIn()) {
+    btnLogIn.style.display = "none"
+    btnLogOut.style.display = "block"
+    getUserProfile()
+  } else {
+    btnLogIn.style.display = "block"
+    btnLogOut.style.display = "none"
+  }
+}else{
   getUserProfile()
 }
+
 }
 async function getUserProfile() {
   const profile = await liff.getProfile()
@@ -46,6 +59,14 @@ async function getUserProfile() {
 
 
 main()
+btnLogIn.onclick = () => {
+  liff.login()
+}
+
+btnLogOut.onclick = () => {
+  liff.logout()
+  window.location.reload()
+}
 
 
 
