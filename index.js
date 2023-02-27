@@ -32,8 +32,14 @@ switch (liff.getOS()) {
   case "android": body.style.backgroundColor = "#d1f5d3"; break
   case "ios": body.style.backgroundColor = "#eeeeee"; break
   case "web": body.style.backgroundColor = "#aaee3f"; break
+  getUserProfile()
 }
 }
+
+
+
+main()
+
 
 async function getUserProfile() {
   const profile = await liff.getProfile()
@@ -43,9 +49,3 @@ async function getUserProfile() {
   displayName.innerHTML = "<b>displayName:</b> " + profile.displayName
   email.innerHTML = "<b>email:</b> " + liff.getDecodedIDToken().email
 }
-async function main() {
-  // ...
-  getUserProfile()
-}
-main()
-
