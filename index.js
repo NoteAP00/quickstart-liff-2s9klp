@@ -35,12 +35,6 @@ switch (liff.getOS()) {
   getUserProfile()
 }
 }
-
-
-
-main()
-
-
 async function getUserProfile() {
   const profile = await liff.getProfile()
   pictureUrl.src = profile.pictureUrl
@@ -49,3 +43,9 @@ async function getUserProfile() {
   displayName.innerHTML = "<b>displayName:</b> " + profile.displayName
   email.innerHTML = "<b>email:</b> " + liff.getDecodedIDToken().email
 }
+
+
+main()
+
+
+
